@@ -14,9 +14,9 @@ function AddToQueue(props){
     const [ classInfo, setClassInfo ] = useState('');
 
     const submitQueue = async (e)=>{
-        console.log(subject);
-        console.log(desc);
-        console.log(classInfo);
+        // console.log(subject);
+        // console.log(desc);
+        // console.log(classInfo);
         e.preventDefault();
         const url = `http://localhost:3000/queue/`;
         const data={

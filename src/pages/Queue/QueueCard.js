@@ -1,13 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Queue.css'
 import AddToQueue from './AddToQueue';
 import {Link} from 'react-router-dom'
+import axios from 'axios';
+
 
 function QueueCard(props){
-    console.log(props.subject);
-    console.log(props.desc);
-    console.log(props.classInfo);
-    
+
+    const [ qData, setQData ] = useState('')
+
+    useEffect(()=>{
+        const queueCardUrl = `http://localhost:5000/queue/find`;
+
+        const queuePromises = [];
+        async function getData(){
+            queuePromises.push(axios.get(queueCardUrl))
+
+            const resp = await Promise.all(queuePromises);
+            console.log(resp);
+            const data = resp[0].data[23];
+            setQData(data);
+        }
+        getData();
+    },[])
+
     return(
         <div className="col s12 m7">
         <h3 className="header">Queue List:</h3>
@@ -18,37 +34,37 @@ function QueueCard(props){
           <div className="card-stacked">
             <div className="card-content">
             <div className="card-name">
-                {props.name 
+                {qData.date 
                 ?
                     <h5>
-                        {props.name}
+                        {qData.date}
                     </h5>
                 : <h4>name goes here</h4>}
                 </div>
               <div>
-                {props.subject 
+                {qData.subject 
                 ?
                     <h5>
-                        {props.subject}
+                        {qData.subject}
                     </h5>
                 : <h5>subject goes here</h5>}
                 </div>
             
                 <div>
-                    {props.desc 
+                    {qData.desc 
                     ?
-                    <h5>
-                        {props.desc}
-                    </h5>
+                    <p>
+                        {qData.desc}
+                    </p>
                     : <p>desc goes here</p>}
                 </div>
             
                 <div>
-                    {props.classInfo 
+                    {qData.classInfo 
                     ?
-                    <h5>
-                        {props.classInfo}
-                    </h5>
+                    <p>
+                        {qData.classInfo}
+                    </p>
                     : <p>class info goes here</p>}
                 </div>
                 
@@ -66,6 +82,7 @@ function QueueCard(props){
       </div>
       
     )
+    
 }
 
 export default QueueCard;

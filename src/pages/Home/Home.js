@@ -1,13 +1,7 @@
-// import React, { useState, useEffect } from 'react';
+
 import React from 'react';
 import './Home.css';
-// import SearchBox from './SearchBox';
-// import Spinner from '../../utility/Spinner/Spinner';
-// import axios from 'axios';
-// import Cities from '../../utility/City/Cities';
-// import Activities from '../../utility/Activity/Activities';
-// import Venues from '../../utility/Venue/Venues';
-import penguin from '../../images/penguin.png'
+
 
 function Home(props){
 
@@ -28,46 +22,7 @@ function Home(props){
                 </p>
             </div>
         </div>
-    // <div>
-        /* <div className="container-fluid">
-            <div className="row">
-                <div className="home col s12">
-                    <div className="upper-fold">
-                        <SearchBox history={props.history} />
-                    </div>
-                </div>
-            </div> */
-        /* </div> */
-        /* <div className="container-fluid lower-fold">
-            <div className="row">
-                <div className="col s12">
-                    <Cities cities={cities} header="Recommended Cities For You" />
-                </div>
-
-                <div className="col s12">
-                    <Activities activities={activities} header="Today in your area" />
-                </div>
     
-                <div className="col s12">
-                    <Cities cities={europeCities.cities} header={europeCities.header} />
-                </div>
-
-                <div className="col s12">
-                    <Venues venues={recVenues.venues} header={recVenues.header} />
-                </div>
-                
-
-                <div className="col s12">
-                    <Cities cities={asiaCities.cities} header={asiaCities.header} />
-                </div>
-
-                <div className="col s12">
-                    <Cities cities={exoticCities.cities} header={exoticCities.header} />
-                </div>
-
-            </div>
-        </div>
-    </div> */
     )
 
 }
