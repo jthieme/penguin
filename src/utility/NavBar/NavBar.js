@@ -29,7 +29,7 @@ function NavBar(props){
         <div className="row">
             <nav className={navColor}>
                 <div className="nav-wrapper">
-                    <Link to="/" className="left"><img className="nav-penguin" src={penguin}/></Link>
+                    <Link to="/" className="left"><img className="nav-penguin" src={penguin} alt="penguin" /></Link>
                     <ul id="nav-mobile" className="right">
 
                         {email

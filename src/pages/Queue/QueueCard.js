@@ -8,20 +8,27 @@ import axios from 'axios';
 function QueueCard(props){
 
     const [ qData, setQData ] = useState('')
+    console.log(props)
 
     useEffect(()=>{
-        const queueCardUrl = `http://localhost:5000/queue/find`;
+        if (props.queueList === '' || props.queueList === 'undefined'){
+            const queueCardUrl = `http://localhost:5000/api/find`;
 
-        const queuePromises = [];
-        async function getData(){
+            const queuePromises = [];
+            async function getData(){
             queuePromises.push(axios.get(queueCardUrl))
 
             const resp = await Promise.all(queuePromises);
             console.log(resp);
             const data = resp[0].data[23];
             setQData(data);
+            }
+            getData();
         }
-        getData();
+        else{
+            console.log(props.todayData)
+        }
+        
     },[])
 
     return(
