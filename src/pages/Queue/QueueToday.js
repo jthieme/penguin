@@ -26,7 +26,7 @@ function QueueToday(props){
             console.log(res)
             res.data.map((i)=>{
                 if (res.data[i] === todayDate){
-                    const data = res.data[32];
+                    const data = res.data[i];
     
                     setTodayQ(data);
                 }

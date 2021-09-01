@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom'
 import AddToQueue from './AddToQueue';
 import QueueList from './QueueList';
 import QueueCard from './QueueCard';
+import QueueToday from './QueueToday';
 import axios from 'axios';
 
 function Queue(props){
@@ -12,7 +13,7 @@ function Queue(props){
     const [ queueList, setQueueList ] = useState('');
 
     useEffect(()=>{
-        const queueCardUrl = `http://localhost:3000/queue`;
+        const queueCardUrl = `http://localhost:5000/api/find`;
 
         const queuePromises = [];
         async function getData(){
@@ -30,14 +31,14 @@ function Queue(props){
             <div className="row">
                 <div className="col s8 offset-s3">
                     <Route exact path="/queue" render={()=>
-                        <QueueCard queueList={queueList} />
-                        // <QueueList queueList={queueList} />
+                        // <QueueCard queueList={queueList} />
+                        <QueueList queueList={queueList} />
                     } />
                     <Route exact path="/queue/current/hourly" render={()=>
                         <h1>hourly queue</h1>
                     } />
                     <Route exact path="/queue/current/today" render={()=>
-                        <h1>queue for today</h1>
+                        <QueueToday />
                     } />
                     <Route exact path="/queue/week" render={()=>
                         <h1>queue for the week</h1>
