@@ -9,17 +9,16 @@ function QueueList(props){
     const data = props.queueList;
     
     // <QueueCard data={data} />
-    for (var i = 0; i < data.length; i++){
+    for (var i = 0; i < data[i]; i++){
         return(
-            <div key={i} className="col s12">
+            <div className="col s12">
                 <QueueCard queueCard={data}/>
-                {console.log(data)}
             </div>
         )
     }
     return (
         <div>
-            {data[i]}
+            {data}
         </div>
     )
     

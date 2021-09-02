@@ -31,14 +31,14 @@ function Queue(props){
             <div className="row">
                 <div className="col s8 offset-s3">
                     <Route exact path="/queue" render={()=>
-                        // <QueueCard queueList={queueList} />
-                        <QueueList queueList={queueList} />
+                        <QueueCard queueList={queueList} header="Queue List:"/>
+                        // <QueueList queueList={queueList} />
                     } />
                     <Route exact path="/queue/current/hourly" render={()=>
                         <h1>hourly queue</h1>
                     } />
                     <Route exact path="/queue/current/today" render={()=>
-                        <QueueToday />
+                        <QueueToday header="Queue for Today:"/>
                     } />
                     <Route exact path="/queue/week" render={()=>
                         <h1>queue for the week</h1>

@@ -12,6 +12,7 @@ function SignUp(props){
     const dispatch = useDispatch();
 
     const [ lowerPartOfForm, setLowerPartOfForm ] = useState('')
+    const [ username, changeUsername] = useState('')
     const [ email, changeEmail ] = useState('')
     const [ password, changePassword ] = useState('')
 
@@ -28,6 +29,7 @@ function SignUp(props){
     const showInputs = ()=>{
         setLowerPartOfForm(
             <SignUpInputFields
+                changeUsername={(e)=>changeUsername(e.target.value)}
                 changeEmail={(e)=>changeEmail(e.target.value)}
                 changePassword={(e)=>changePassword(e.target.value)}
             />
@@ -36,11 +38,13 @@ function SignUp(props){
 
     const submitLogin = async(e)=>{
         e.preventDefault();
+        console.log(username);
         console.log(email);
         console.log(password);
 
-        const url = `http://localhost:3000`;
+        const url = `http://localhost:5000/api/register`;
         const data = {
+            username: username,
             email: email,
             password: password
         }
@@ -50,7 +54,7 @@ function SignUp(props){
     
     return(
         <div className="login-form">
-            <form>
+            <form onSubmit={submitLogin}>
                 <button className="facebook-login">Connect With Facebook</button>
                 <button className="google-login">Connect With Google</button>
                 <div className="login-or center">

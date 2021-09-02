@@ -143,3 +143,10 @@
     margin: 25px 0px 15px;
 }
 
+div.input-field {
+    margin-bottom: 0;
+}
+
+div input {
+    margin-bottom: 0;
+}

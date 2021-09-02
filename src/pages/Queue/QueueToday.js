@@ -40,7 +40,10 @@ function QueueToday(props){
 
     console.log(todayQ)
     return(
-        <QueueCard todayData={todayQ} />
+        <div>
+            <h3 className="header">{props.header}</h3>
+            <QueueCard todayData={todayQ} />
+        </div>
     )
 }
 

@@ -10,11 +10,15 @@ app.use(cors());
 app.use(express.json())
 // it is be accesses by localhost:5000/queue then the endpoint
 app.use('/api', router)
-// sets the size pf the json that we will send
+// bodyparser helps to decode the body that is coming in from the request
 app.use(bodyParser.json({ limit: '20mb', extended: true }))
 // does the same but for the url
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: true }))
 
+// default if the enpoint is not found
+app.all('*', (req, res) => {
+    res.status(404).send("Resources not found on Penguin")
+})
 
 // this is the connection url for the database
 const connectionUrl = 'mongodb+srv://leon:narineLDS21@tinderclone.fel1b.mongodb.net/tinder-clone?retryWrites=true&w=majority'
@@ -26,7 +30,8 @@ const PORT = 5000
 mongoose.connect(connectionUrl, {
     // helps to avoid errr=ors and warnings 
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 }).then(() => app.listen(PORT, () => {
     console.log(`Server Connected on ${PORT}...`)
 })).catch((error) => console.log(error.message))

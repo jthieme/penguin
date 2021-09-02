@@ -36,7 +36,7 @@ function QueueCard(props){
 
     return(
         <div className="col s12 m7">
-        <h3 className="header">Queue:</h3>
+        <h3 className="header">{props.header}</h3>
         <div className="card horizontal">
           <div className="card-image">
             <img src="https://lorempixel.com/100/100/nature/6"/>

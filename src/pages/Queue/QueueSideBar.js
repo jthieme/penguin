@@ -6,9 +6,9 @@ function QueueSideBar(props){
     return(
         <ul className="sidenav sidenav-fixed">
             <li className="row">
-                <div className="col right">
+                {/* <div className="col right">
                     <div className="close">&times;</div>
-                </div>
+                </div> */}
 
             </li>
             <li>

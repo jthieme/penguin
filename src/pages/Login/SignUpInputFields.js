@@ -4,6 +4,12 @@ const SignUpInputFields = (props)=>{
     return(
         <div className="sign-up-wrapper">
             <div className="col m12">
+                <div className="input-field" id="username">
+                    <div className="form-label">Username</div>
+                    <input type="text" placeholder="Username" onChange={props.changeUsername} />
+                </div>
+            </div>
+            <div className="col m12">
                 <div className="input-field" id="email">
                     <div className="form-label">Email</div>
                     <input type="text" placeholder="Email" onChange={props.changeEmail} />

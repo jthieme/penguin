@@ -11,22 +11,25 @@ function Login(props){
 
     const dispatch = useDispatch();
 
+    const [username, changeUsername] = useState('')
     const [email, changeEmail] = useState('')
     const [password, changePassword] = useState('')
 
 
     const submitLogin = async(e)=>{
         e.preventDefault();
+        console.log(username);
         console.log(email);
         console.log(password);
         // console.log(resp);
 
-        const url = `http://localhost:3000`;
+        const url = `http://localhost:5000/api/register`;
         const data = {
+            username: username,
             email: email,
             password: password
         }
-        // const resp = await axios.post(url,data);
+        const resp = await axios.post(url,data);
         // const token = resp.data.token;
                 
 
@@ -66,6 +69,7 @@ function Login(props){
                     <span>or</span>
                     <div className="or-divider"></div>
                 </div>
+                <input onChange={(e)=>changeUsername(e.target.value)} value={username} type="text" className="browser-default" placeholder="Username" />
                 <input onChange={(e)=>changeEmail(e.target.value)} value={email} type="text" className="browser-default" placeholder="Email address" />
                 <input onChange={(e)=>changePassword(e.target.value)} value={password} type="password" className="browser-default" placeholder="Password" />
                 <button className="sign-up-button">Login</button>
