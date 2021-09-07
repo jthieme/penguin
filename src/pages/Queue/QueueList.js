@@ -12,13 +12,13 @@ function QueueList(props){
     for (var i = 0; i < data[i]; i++){
         return(
             <div className="col s12">
-                <QueueCard queueCard={data}/>
+                <QueueCard queueCard={data[i]}/>
             </div>
         )
     }
     return (
         <div>
-            {data}
+            {data[i]}
         </div>
     )
     

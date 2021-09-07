@@ -8,34 +8,34 @@ import axios from 'axios';
 function QueueCard(props){
 
     const [ qData, setQData ] = useState('')
-    const list = 'Queue List:';
-    const hourly = 'Hourly Queue:';
-    const today = 'Queue for Today:';
-    console.log(props)
 
-    useEffect(()=>{
-        if (props.queueList === '' || props.queueList === 'undefined'){
-            const queueCardUrl = `http://localhost:5000/api/find`;
+    // console.log(props)
 
-            const queuePromises = [];
-            async function getData(){
-            queuePromises.push(axios.get(queueCardUrl))
+    // useEffect(()=>{
+    //     if (props.queueList === '' || props.queueList === 'undefined'){
+    //         const queueCardUrl = `http://localhost:5000/api/find`;
 
-            const resp = await Promise.all(queuePromises);
-            console.log(resp);
-            const data = resp[0].data[23];
-            setQData(data);
-            }
-            getData();
-        }
-        else{
-            console.log(props.todayData)
-        }
+    //         const queuePromises = [];
+    //         async function getData(){
+    //         queuePromises.push(axios.get(queueCardUrl))
+
+    //         const resp = await Promise.all(queuePromises);
+    //         console.log(resp);
+    //         const data = resp[0].data[16];
+    //         setQData(data);
+    //         }
+    //         getData();
+    //     }
+    //     else{
+    //         console.log(props.todayData)
+    //     }
         
-    },[])
+    // },[])
 
     return(
+        
         <div className="col s12 m7">
+            <div>{props.queueList}</div>
         <h3 className="header">{props.header}</h3>
         <div className="card horizontal">
           <div className="card-image">

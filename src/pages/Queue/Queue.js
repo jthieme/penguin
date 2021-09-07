@@ -10,7 +10,7 @@ import axios from 'axios';
 
 function Queue(props){
 
-    const [ queueList, setQueueList ] = useState('');
+    const [ queueList, setQueueList ] = useState([]);
 
     useEffect(()=>{
         const queueCardUrl = `http://localhost:5000/api/find`;
@@ -20,9 +20,10 @@ function Queue(props){
             queuePromises.push(axios.get(queueCardUrl))
 
             const resp = await Promise.all(queuePromises);
+            
             setQueueList(resp[0].data);
         }
-        getData();
+       getData();
     },[])
 
     return(
@@ -31,8 +32,19 @@ function Queue(props){
             <div className="row">
                 <div className="col s8 offset-s3">
                     <Route exact path="/queue" render={()=>
+                    <div>
+                    {queueList.map(queueList=>{
+                        <div key={queueList._id}>
+                        {console.log(queueList)}
                         <QueueCard queueList={queueList} header="Queue List:"/>
+                        </div>
+                    })}
+                    <div>{queueList}</div>
+                    
+
+                    </div>
                         // <QueueList queueList={queueList} />
+                        // <p>{queueList}</p>
                     } />
                     <Route exact path="/queue/current/hourly" render={()=>
                         <h1>hourly queue</h1>
