@@ -12,17 +12,22 @@ function AddToQueue(props){
     const [ subject, setSubject ] = useState('');
     const [ desc, setDesc ] = useState('');
     const [ classInfo, setClassInfo ] = useState('');
+    const [ apptDate, setApptDate ] = useState('');
+    const [ queueId, setQueueId ] = useState('');
 
     const submitQueue = async (e)=>{
         // console.log(subject);
         // console.log(desc);
         // console.log(classInfo);
         e.preventDefault();
-        const url = `http://localhost:3000/queue/`;
+        const url = `http://localhost:5000/api/create`;
         const data={
             subject: subject,
             desc: desc,
-            classInfo: classInfo
+            classInfo: classInfo,
+            apptDate: apptDate,
+            queueId: queueId
+
         }
         const resp = await axios.post(url,data);
         console.log(data);

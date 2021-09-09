@@ -50,6 +50,7 @@ function SignUp(props){
         }
         const resp = await axios.post(url,data);
         // const token = resp.data.token;
+        console.log(resp)
     }
     
     return(
