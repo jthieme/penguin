@@ -42,7 +42,7 @@ function QueueToday(props){
     return(
         <div>
             <h3 className="header">{props.header}</h3>
-            <QueueCard todayData={todayQ} />
+            {props.date ? <QueueCard todayData={todayQ} /> :  <h5 className="empty">Empty Queue</h5>}
         </div>
     )
 }

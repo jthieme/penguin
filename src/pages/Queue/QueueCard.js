@@ -7,7 +7,10 @@ import axios from 'axios';
 
 function QueueCard(props){
 
-    const [ qData, setQData ] = useState('')
+    // const [ qData, setQData ] = useState('')
+
+    const qData = props.queueList;
+    console.log(props)
 
     // console.log(props)
 
@@ -35,7 +38,7 @@ function QueueCard(props){
     return(
         
         <div className="col s12 m7">
-            <div>{props.queueList}</div>
+            {/* <div>{props.queueList}</div> */}
         <h3 className="header">{props.header}</h3>
         <div className="card horizontal">
           <div className="card-image">

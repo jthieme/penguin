@@ -1,6 +1,7 @@
   
 .account{
-    position: relative;
+    top: 64px;
+    position: fixed;
     z-index: 100;
     margin-top: 55px;
 }

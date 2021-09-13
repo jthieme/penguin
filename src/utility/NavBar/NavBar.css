@@ -40,3 +40,9 @@
     height:50px;
     filter:invert(180);
 }
+
+.nav-fixed{
+    position: fixed;
+    z-index: 1000;
+
+}

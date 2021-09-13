@@ -50,3 +50,17 @@ h3,h6{
   .sidenav{
       position: fixed;
   }
+
+  .sidenav-fixed {
+      top: 64px;
+  }
+
+  .empty {
+      margin-top: 2em;
+      margin-left: 1.3em;
+      color: #777;
+  }
+
+  .top-m {
+      margin: 50px;
+  }

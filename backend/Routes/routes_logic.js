@@ -1,9 +1,8 @@
 import PenguinQue from '../MongoDB/schemas.js';
 import UserSchema from '../MongoDB/user_schema.js';
 
-
+/*Finding all the que in the database */
 export const findQue = async (req, res) => {
-    // res.status(200).send('Helloo Penguin')
     try {
         // find all the queue inthe DB
         const allQue = await PenguinQue.find()
@@ -27,10 +26,6 @@ export const findQue = async (req, res) => {
 }
 
 export const createQue = async (req, res) => {
-    // res.status(200).send('Helloo Penguin')
-
-    //whatever request you get, it will be stored
-    // this res.body and then into the Penqueue
     const queueInfo = req.body
 
     // we will pass the body request that 
@@ -69,6 +64,7 @@ export const find_by_que_id = async (req, res) => {
 
 }
 
+/*Find queue by Today's date */
 export const today_que = async (req, res) => {
     try {
         var date = new Date();
@@ -98,6 +94,7 @@ export const register = async (req, res) => {
     try {
         const newUser = UserSchema(req.body)
         await newUser.save()
+        res.status(200).send('Success')
 
 
     } catch (error) {
@@ -126,5 +123,60 @@ export const register = async (req, res) => {
     // } catch (error) {
     //     res.status(401).send({ message: error.message })
     // }
+
+}
+
+/*Deleting a person from the Queue */
+
+// export const delete_queue = async (req, res) => {
+//     try {
+//         const queue_id = req.params.queId
+//         await PenguinQue.findOneAndRemove({ _id: queue_id },
+//             (error, queue) => {
+//                 if (error) {
+//                     res.status(401).send({ message: error.message })
+//                     console.log(error.message)
+//                 }
+//                 else {
+//                     console.log("Removed User : ", queue);
+//                     if (queue !== null) {
+//                         res.send(`Queue with ${queue._id} has been deleted`)
+
+//                     }
+//                     else {
+//                         res.send(`Queue with id ${queue_id} does not exit or has already been deleted`)
+//                     }
+//                 }
+//             });
+//     } catch (error) {
+//         res.status(401).send({ message: error.message })
+//         console.log(error.message)
+//     }
+
+
+// }
+
+
+/*Finding all queues for specific owner */
+
+export const ownerUrl = async (req, res) => {
+    const ownerId = req.params.ownerId
+    console.log(ownerId)
+    try {
+        const ownerQue = await PenguinQue.find({ visiteeId: ownerId })
+        if (ownerQue.length > 0) {
+            res.status(200).json(ownerQue)
+            console.log(ownerQue)
+
+        }
+        else {
+            res.status(200).send('There is no Queue')
+        }
+
+    } catch (error) {
+        console.log('Failed')
+        res.status(401).send({ message: error.message })
+        console.log(error.message)
+    }
 
 }

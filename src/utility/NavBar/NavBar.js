@@ -25,7 +25,7 @@ function NavBar(props){
 
     let navColor = 'black';
     
-    return(<div className="container-fluid nav">
+    return(<div className="container-fluid nav nav-fixed">
         <div className="row">
             <nav className={navColor}>
                 <div className="nav-wrapper">
